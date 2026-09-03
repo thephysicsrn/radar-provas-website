@@ -1,0 +1,131 @@
+/* ==========================================================================
+   RADAR - Responsividade & Breakpoints
+   css/responsive.css
+   ========================================================================== */
+
+/* Telas Grandes / Desktops (<= 1200px) */
+@media (max-width: 1200px) {
+  .widget-hero-top-left {
+    left: 1%;
+    width: 230px;
+  }
+  .widget-hero-top-right {
+    right: 1%;
+    width: 240px;
+  }
+  .widget-hero-bottom-left {
+    left: 1%;
+    width: 240px;
+  }
+  .widget-hero-bottom-right {
+    right: 1%;
+    width: 240px;
+  }
+}
+
+/* Notebooks & Tablets Horizontais (<= 992px) */
+@media (max-width: 992px) {
+  .hero-section {
+    padding-top: 140px;
+    min-height: auto;
+  }
+
+  .floating-widget {
+    position: static;
+    margin: 12px auto;
+    width: 100% !important;
+    max-width: 440px;
+    animation: none !important;
+  }
+
+  .hero-floating-widgets-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .bento-card.col-5,
+  .bento-card.col-7,
+  .bento-card.col-4,
+  .bento-card.col-8,
+  .bento-card.col-6 {
+    grid-column: span 12;
+  }
+
+  .command-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-card {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hiring-perks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablets Verticais & Smartphones (<= 768px) */
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    top: 12px;
+    padding: 0 12px;
+  }
+
+  .floating-navbar {
+    padding: 6px 12px;
+  }
+
+  .nav-links {
+    display: none; /* Menu recolhido em mobile com drawer/botão */
+  }
+
+  .hero-section {
+    padding-top: 120px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .modal-box {
+    padding: 24px;
+  }
+}

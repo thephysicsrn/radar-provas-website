@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RADAR • Plataforma Operacional & Centro de Comando</title>
+  <meta name="description" content="Demonstração técnica da plataforma operacional, monitoramento de ambientes e protocolos de segurança da RADAR.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Ambient Glow & Background Pattern -->
+  <div class="bg-mesh-pattern"></div>
+  <div class="hero-ambient-glow"></div>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- 1. FLOATING NAVBAR                                                      -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="navbar-wrapper">
+    <nav class="floating-navbar" aria-label="Navegação Principal">
+      <a href="index.html" class="nav-brand" title="RADAR Provas">
+        <div class="brand-icon-wrapper">
+          <div class="brand-radar-sweep"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+            <line x1="12" y1="2" x2="12" y2="6"></line>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+            <line x1="2" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="22" y2="12"></line>
+          </svg>
+        </div>
+        <span>RADAR</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">← Voltar ao Início</a>
+        <a href="#painel" class="nav-item active">Centro de Comando</a>
+        <a href="#arquitetura" class="nav-item">Segurança & Protocolos</a>
+      </div>
+
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="btn-theme-toggle" aria-label="Alternar Modo Escuro/Claro">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="btn btn-yellow btn-sm btn-open-proposal">
+          <span>Solicitar Proposta</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- 2. HEADER DA ABA OPERACIONAL                                            -->
+  <!-- ----------------------------------------------------------------------- -->
+  <header class="section" style="padding-top: 150px; padding-bottom: 40px; text-align: center;">
+    <div class="container">
+      <div class="section-badge reveal-init">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        <span>Painel Técnico Operacional</span>
+      </div>
+      <h1 class="reveal-init reveal-stagger-1" style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 16px;">
+        Centro de Comando & Monitoramento
+      </h1>
+      <p class="reveal-init reveal-stagger-2" style="max-width: 680px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+        Acompanhe a demonstração técnica de como a supervisão da RADAR gerencia ambientes, escalas de fiscais e protocolos de segurança em tempo de execução.
+      </p>
+    </div>
+  </header>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- 3. PAINEL DE CONTROLE / CENTRO DE COMANDO TÉCNICO                       -->
+  <!-- ----------------------------------------------------------------------- -->
+  <section id="painel" class="section" style="padding-top: 20px;">
+    <div class="container">
+      
+      <div class="command-center-box reveal-scale">
+        <div class="command-header">
+          <div class="command-title-group">
+            <div class="brand-icon-wrapper" style="width: 32px; height: 32px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="2" x2="12" y2="6"></line></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.2rem;">Painel de Acompanhamento Operacional</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Console de supervisão e resposta em tempo real</p>
+            </div>
+          </div>
+
+          <div class="command-radar-status">
+            <span class="pulse-dot"></span>
+            <span>Varredura Ativa • Ambientes Conectados</span>
+          </div>
+        </div>
+
+        <div class="command-grid">
+          
+          <!-- Lista de Ambientes -->
+          <div class="room-selector-list">
+            <div class="room-card-btn active" data-room="room-101">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Ambiente 01 • Aplicação Regular</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Sessão Ativa • Equipe de Sala</div>
+              </div>
+              <span class="status-badge confirmed">Normal</span>
+            </div>
+
+            <div class="room-card-btn" data-room="room-102">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Ambiente 02 • Simulado Geral</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Supervisão Contínua</div>
+              </div>
+              <span class="status-badge confirmed">Normal</span>
+            </div>
+
+            <div class="room-card-btn" data-room="room-103">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Ambiente 03 • Processo Seletivo</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Capacidade Integral</div>
+              </div>
+              <span class="status-badge ongoing">Supervisionado</span>
+            </div>
+
+            <div class="room-card-btn" data-room="room-104">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Ambiente 04 • Avaliação Digital</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Ambiente Seguro Ativo</div>
+              </div>
+              <span class="status-badge confirmed">Digital OK</span>
+            </div>
+          </div>
+
+          <!-- Telemetria do Ambiente -->
+          <div class="room-details-panel">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h4 id="cmdRoomName" style="font-size: 1.25rem;">Ambiente 01 • Aplicação Regular</h4>
+                <span class="status-badge confirmed">Demonstração</span>
+              </div>
+
+              <div class="room-telemetry-grid">
+                <div class="telemetry-item">
+                  <div class="telemetry-label">Alocação de Equipe</div>
+                  <div id="cmdProctorName" class="telemetry-val" style="font-size: 0.95rem;">Fiscal Líder + Assistente</div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">Status do Ambiente</div>
+                  <div id="cmdCandidates" class="telemetry-val">100% Presentes no Horário</div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">Duração Prevista</div>
+                  <div id="cmdTimeRemaining" class="telemetry-val" style="font-family: monospace;">01:45:00</div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">Padrão de Integridade</div>
+                  <div id="cmdIntegrityStatus" class="telemetry-val status-green" style="font-size: 0.95rem;">Conformidade Plena (100%)</div>
+                </div>
+              </div>
+
+              <!-- Log Feed -->
+              <div style="margin-top: 16px;">
+                <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted);">Registro de Eventos e Checkpoints</div>
+                <div id="cmdLogFeed" style="display: flex; flex-direction: column; gap: 8px;"></div>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; display: flex; justify-content: flex-end;">
+              <button id="btnTriggerTestAlert" class="btn btn-yellow btn-sm">
+                <span>⚡ Testar Resposta Operacional</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- 4. ESPECIFICAÇÕES TÉCNICAS E SEGURANÇA                                  -->
+  <!-- ----------------------------------------------------------------------- -->
+  <section id="arquitetura" class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      
+      <div class="section-header reveal-init">
+        <div class="section-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Padrões de Segurança</span>
+        </div>
+        <h2>Arquitetura e Protocolos Operacionais</h2>
+        <p>
+          Os pilares que asseguram a integridade dos processos de avaliação geridos pela RADAR.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        
+        <div class="bento-card col-4 reveal-init reveal-stagger-1">
+          <div>
+            <div class="bento-card-top">
+              <h3 class="bento-card-title">1. Lacres Holográficos</h3>
+              <div class="bento-card-arrow">🔒</div>
+            </div>
+            <p class="bento-card-desc">
+              Malotes de segurança com lacre numerado inviolável. Abertura realizada apenas em sala de prova sob a vista dos candidatos.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-card col-4 reveal-init reveal-stagger-2">
+          <div>
+            <div class="bento-card-top">
+              <h3 class="bento-card-title">2. Atas com Assinatura Digital</h3>
+              <div class="bento-card-arrow">📑</div>
+            </div>
+            <p class="bento-card-desc">
+              Registro formal de horários, intercorrências e presenças com consolidação digital imediata pós-exame.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-card col-4 reveal-init reveal-stagger-3">
+          <div>
+            <div class="bento-card-top">
+              <h3 class="bento-card-title">3. Fiscais Volantes</h3>
+              <div class="bento-card-arrow">👥</div>
+            </div>
+            <p class="bento-card-desc">
+              Profissionais dedicados exclusivamente para cobertura de corredores, apoio ao sanitário e suprimento de materiais reservas.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-card col-6 reveal-init reveal-stagger-1">
+          <div>
+            <div class="bento-card-top">
+              <h3 class="bento-card-title">4. Cadeia de Custódia</h3>
+              <div class="bento-card-arrow">📦</div>
+            </div>
+            <p class="bento-card-desc">
+              Controle físico rigoroso na contagem e devolução de folhas de resposta e cadernos de prova até a entrega final à coordenação.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-card col-6 reveal-init reveal-stagger-2">
+          <div>
+            <div class="bento-card-top">
+              <h3 class="bento-card-title">5. Treinamento de Conduta</h3>
+              <div class="bento-card-arrow">🎓</div>
+            </div>
+            <p class="bento-card-desc">
+              Módulo preparatório específico sobre postura ética, tratamento respeitoso com estudantes e procedimentos de contingência.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="index.html" class="btn btn-outline btn-lg" style="margin-right: 12px;">
+          <span>← Voltar para a Página Principal</span>
+        </a>
+        <button class="btn btn-yellow btn-lg btn-open-proposal">
+          <span>Solicitar Proposta para sua Escola</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- FOOTER                                                                  -->
+  <!-- ----------------------------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 RADAR - Rede de Apoio e Defesa da Aplicação Responsável.</div>
+        <div>
+          <a href="index.html" style="color: var(--text-muted); margin-right: 16px;">Início</a>
+          <a href="operacoes.html" style="color: var(--radar-yellow);">Painel Operacional</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Proposta -->
+  <div id="proposalModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Fechar">✕</button>
+      <div style="margin-bottom: 24px;">
+        <span class="status-badge confirmed" style="margin-bottom: 8px;">Contato Institucional</span>
+        <h3 style="font-size: 1.4rem;">Solicite a Equipe RADAR</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Preencha os dados abaixo para receber uma apresentação personalizada.</p>
+      </div>
+
+      <form id="proposalForm">
+        <div class="form-group">
+          <label class="form-label" for="propInstitution">Nome da Instituição / Escola</label>
+          <input type="text" id="propInstitution" class="form-input" placeholder="Ex: Nome da sua escola ou curso..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="propContactName">Seu Nome e Cargo</label>
+          <input type="text" id="propContactName" class="form-input" placeholder="Ex: Coordenador(a) Pedagógico(a)" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="propPhone">WhatsApp / Telefone</label>
+          <input type="tel" id="propPhone" class="form-input" placeholder="(84) 99999-9999" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="propExamType">Tipo de Avaliação e Período</label>
+          <input type="text" id="propExamType" class="form-input" placeholder="Ex: Simulado ENEM / Avaliação Trimestral" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="propNotes">Observações</label>
+          <textarea id="propNotes" class="form-textarea" rows="3" placeholder="Informações adicionais sobre salas, turnos ou necessidades..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-yellow btn-lg" style="width: 100%;">
+          <span>Enviar e Falar com a Coordenação</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Live Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/command-center.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

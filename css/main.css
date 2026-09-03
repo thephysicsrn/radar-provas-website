@@ -1,0 +1,268 @@
+/* ==========================================================================
+   RADAR - REDE DE APOIO E DEFESA DA APLICAÇÃO RESPONSÁVEL
+   Folha de Estilos Principal (main.css)
+   ========================================================================== */
+
+:root {
+  /* Paleta Primária RADAR */
+  --radar-yellow: #FFD600;
+  --radar-yellow-hover: #E6C200;
+  --radar-yellow-light: #FFF9D6;
+  --radar-yellow-glow: rgba(255, 214, 0, 0.35);
+  
+  /* Paleta Dark Tech & Superfícies */
+  --bg-primary: #FAFAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F3F9;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FDFDFE;
+  --bg-pill: rgba(255, 255, 255, 0.88);
+  --bg-floating: rgba(255, 255, 255, 0.95);
+  
+  /* Textos */
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-subtle: #94A3B8;
+  --text-inverse: #FFFFFF;
+  
+  /* Bordas e Sombras */
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-focus: rgba(255, 214, 0, 0.8);
+  --border-card: rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.09);
+  --shadow-float: 0 20px 48px -12px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+  --shadow-yellow: 0 8px 25px rgba(255, 214, 0, 0.4);
+
+  /* Status Colors */
+  --status-green: #10B981;
+  --status-green-bg: #ECFDF5;
+  --status-blue: #3B82F6;
+  --status-blue-bg: #EFF6FF;
+  --status-amber: #F59E0B;
+  --status-amber-bg: #FEF3C7;
+  --status-purple: #8B5CF6;
+  --status-purple-bg: #F5F3FF;
+  --status-red: #EF4444;
+  --status-red-bg: #FEF2F2;
+
+  /* Layout & Grid */
+  --container-max: 1240px;
+  --nav-height: 72px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  
+  /* Transições */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Modo Escuro (Cyber Operations Mode) */
+[data-theme="dark"] {
+  --bg-primary: #0A0C10;
+  --bg-secondary: #11141C;
+  --bg-tertiary: #171B26;
+  --bg-card: #131722;
+  --bg-card-hover: #181D2B;
+  --bg-pill: rgba(19, 23, 34, 0.88);
+  --bg-floating: rgba(17, 20, 28, 0.95);
+  
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+  --text-inverse: #0A0C10;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.07);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-float: 0 20px 48px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.1);
+  --shadow-yellow: 0 8px 25px rgba(255, 214, 0, 0.25);
+
+  --status-green-bg: rgba(16, 185, 129, 0.15);
+  --status-blue-bg: rgba(59, 130, 246, 0.15);
+  --status-amber-bg: rgba(245, 158, 11, 0.15);
+  --status-purple-bg: rgba(139, 92, 246, 0.15);
+  --status-red-bg: rgba(239, 68, 68, 0.15);
+}
+
+/* ==========================================================================
+   Reset & Base Global
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Background Grid Pattern inspirado no template */
+.bg-mesh-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  min-height: 900px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] .bg-mesh-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Glow Amarelo Central no Fundo */
+.hero-ambient-glow {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 214, 0, 0.22) 0%, rgba(255, 214, 0, 0) 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] .hero-ambient-glow {
+  background: radial-gradient(circle, rgba(255, 214, 0, 0.14) 0%, rgba(255, 214, 0, 0) 70%);
+}
+
+/* ==========================================================================
+   Tipografia
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.container-narrow {
+  max-width: 880px;
+}
+
+/* Section Wrapper */
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px auto;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  margin-top: 14px;
+}
+
+/* Badge de Seção */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--bg-tertiary);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-badge svg {
+  width: 15px;
+  height: 15px;
+  color: #D97706;
+}
+
+[data-theme="dark"] .section-badge svg {
+  color: var(--radar-yellow);
+}
