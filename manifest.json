@@ -1,0 +1,26 @@
+{
+  "name": "RADAR - Gestão e Fiscalização de Provas",
+  "short_name": "RADAR Provas",
+  "description": "Plataforma e serviços especializados em aplicação, fiscalização e segurança de exames educacionais.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A0C10",
+  "theme_color": "#FFD600",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "business"]
+}

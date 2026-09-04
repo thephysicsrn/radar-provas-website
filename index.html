@@ -2,9 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>RADAR - Rede de Apoio e Defesa da Aplicação Responsável | Gestão e Fiscalização de Provas</title>
   <meta name="description" content="Plataforma e serviços especializados em aplicação, fiscalização e segurança de exames para escolas, vestibulares e concursos.">
+
+  <!-- PWA & Mobile Web App Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FFD600">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RADAR Provas">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -716,6 +727,28 @@
 
     </div>
   </footer>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- BANNER DE INSTALAÇÃO PWA (MOBILE)                                      -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div id="pwaInstallBanner" class="pwa-install-banner">
+    <div class="pwa-banner-info">
+      <div class="pwa-banner-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#FFD600" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="2" fill="#FFD600"></circle>
+        </svg>
+      </div>
+      <div class="pwa-banner-text">
+        <h5>App RADAR Provas</h5>
+        <p>Instale para melhor navegação no seu celular.</p>
+      </div>
+    </div>
+    <div style="display: flex; gap: 6px;">
+      <button id="btnInstallPwa" class="btn btn-yellow btn-sm" style="padding: 6px 12px; font-size: 0.78rem;">Instalar</button>
+      <button id="btnDismissPwa" class="btn btn-outline btn-sm" style="padding: 6px 10px; font-size: 0.78rem;">✕</button>
+    </div>
+  </div>
 
   <!-- ----------------------------------------------------------------------- -->
   <!-- MODAIS (PROPOSTA & RECRUTAMENTO DE FISCAL)                              -->

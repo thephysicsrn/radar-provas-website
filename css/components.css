@@ -1376,3 +1376,61 @@
 .live-toast.show {
   transform: translateX(0);
 }
+
+/* --------------------------------------------------------------------------
+   11. PWA Install Banner Mobile
+   -------------------------------------------------------------------------- */
+.pwa-install-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--bg-floating);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-float);
+  z-index: 1800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(150%);
+  transition: transform var(--transition-smooth);
+}
+
+.pwa-install-banner.show {
+  transform: translateY(0);
+}
+
+.pwa-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pwa-banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pwa-banner-text h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.pwa-banner-text p {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}

@@ -1,14 +1,67 @@
 /**
- * RADAR - Aplicativo Principal & Demonstrações Visuais
+ * RADAR - Aplicativo Principal, PWA & Demonstrações Visuais
  * js/app.js
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initServiceWorker();
+  initPwaInstallPrompt();
   initLiveToastStream();
   initBentoInteractions();
 });
 
-// Toasts ilustrativos demonstrando o funcionamento da plataforma
+// 1. Registro do Service Worker (PWA)
+function initServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => {
+          console.log('RADAR PWA: Service Worker ativo com sucesso:', reg.scope);
+        })
+        .catch((err) => {
+          console.log('RADAR PWA: Falha ao registrar Service Worker:', err);
+        });
+    });
+  }
+}
+
+// 2. Banner / Prompt de Instalação Mobile PWA
+let deferredPrompt = null;
+function initPwaInstallPrompt() {
+  const installBanner = document.getElementById('pwaInstallBanner');
+  const btnInstall = document.getElementById('btnInstallPwa');
+  const btnDismiss = document.getElementById('btnDismissPwa');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBanner) {
+      setTimeout(() => {
+        installBanner.classList.add('show');
+      }, 2500);
+    }
+  });
+
+  if (btnInstall) {
+    btnInstall.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`RADAR PWA: Escolha do usuário: ${outcome}`);
+        deferredPrompt = null;
+        if (installBanner) installBanner.classList.remove('show');
+      }
+    });
+  }
+
+  if (btnDismiss && installBanner) {
+    btnDismiss.addEventListener('click', () => {
+      installBanner.classList.remove('show');
+    });
+  }
+}
+
+// 3. Toasts ilustrativos demonstrando o funcionamento da plataforma
 function initLiveToastStream() {
   const toastContainer = document.getElementById('toastContainer');
   if (!toastContainer) return;
@@ -56,7 +109,7 @@ function initLiveToastStream() {
   }, 4000);
 }
 
-// Microinterações nos Cards Bento
+// 4. Microinterações nos Cards Bento
 function initBentoInteractions() {
   // Pílulas de Ações Rápidas no chat
   const quickPills = document.querySelectorAll('.quick-action-pill');
